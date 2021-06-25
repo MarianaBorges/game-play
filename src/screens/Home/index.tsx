@@ -1,64 +1,61 @@
-import React,{useState} from 'react';
+import React,{useState,useCallback} from 'react';
 import {
   FlatList,
   Text,
   View,
-  Image } from 'react-native';
-import {useNavigation} from '@react-navigation/native'
-import { styles } from './styles';
+  Image
+} from 'react-native';
+import {useNavigation, useFocusEffect} from '@react-navigation/native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import {COLLECTION_APPOINTMENTS} from '../../configs/database';
 
 import {Profile} from '../../components/Profile'
 import {ButtonAdd} from '../../components/ButtonAdd'
 import {CategorySelect} from '../../components/CategorySelect'
 import {ListHeader} from '../../components/ListHeader'
 import {ListDivider} from '../../components/ListDivider'
-import {Appointment} from '../../components/Appointment'
-
+import {Load} from '../../components/Load'
+import {Appointment,AppointmentProps} from '../../components/Appointment'
 import { Background } from '../../components/Background';
+
+import { styles } from './styles';
 
 export function Home() {
 
   const navigation = useNavigation();
 
   const [category, setCategory] = useState('');
-
-  const appointmwnts =[
-    {
-      id: '1',
-      guild: {
-        id:'1',
-        name:'Lendários',
-        icon:'image.a',
-        owner: true
-      },
-      category:'1',
-      date:'22/06 às 20:40h',
-      description: 'É hoje que vamos chegar oa challenger se perder uma partidada md10 '
-    },
-    {
-      id: '2',
-      guild: {
-        id:'1',
-        name:'Marta',
-        icon:null,
-        owner: true
-      },
-      category:'1',
-      date:'22/06 às 20:40h',
-      description: 'É hoje que vamos chegar oa challenger se perder uma partidada md10 '
-    }
-  ]
+  const [loading, setLoading] = useState(true);
+  const [appointments,setAppointments] = useState('');
 
   function handleCategorySelect(categoryId: string){
     categoryId === category ? setCategory(''):setCategory(categoryId);
   }
 
-  function handleAppontmentDetails() {
-    navigation.navigate('AppointmentDetails');
+  function handleAppontmentDetails(guildSelected: AppointmentProps) {
+    navigation.navigate('AppointmentDetails',{guildSelected});
   }
   function handlerAppointmentCreate(){
     navigation.navigate('AppointmentCreate');
   }
+
+  async function loadAppointments(){
+    const response = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
+    const storage:AppointmentProps[] = response ? JSON.parse(response) : [];
+
+    if (category) {
+      setAppointments(storage.filter(item => item.category === category));
+    }else{
+      setAppointments(storage);
+
+    }
+    setLoading(false);
+  }
+
+  useFocusEffect(useCallback(()=>{
+    loadAppointments();
+  },[category]))
 
   return (
     <Background>
@@ -72,26 +69,30 @@ export function Home() {
           setCategory={handleCategorySelect}
         />
       </View>
+      {
+        loading ? <Load /> :
+        <>
+          <ListHeader
+            title="Partidas agendadas"
+            subtitle={`Total ${appointments.length}`}
+          />
 
-        <ListHeader
-          title="Partidas agendadas"
-          subtitle="total 6"
-        />
-
-        <FlatList
-          data={appointmwnts}
-          keyExtractor={item=>item.id}
-          renderItem={({item})=>(
-            <Appointment
-              data={item}
-              onPress={handleAppontmentDetails}
-              />
-          )}
-          ItemSeparatorComponent={()=><ListDivider/>}
-          contentContainerStyle={{paddingBottom:69}}
-          showsVerticalScrollIndicator
-          style={styles.matches}
-        />
+          <FlatList
+            data={appointments}
+            keyExtractor={item=>item.id}
+            renderItem={({item})=>(
+              <Appointment
+                data={item}
+                onPress={()=>handleAppontmentDetails(item)}
+                />
+            )}
+            ItemSeparatorComponent={()=><ListDivider/>}
+            contentContainerStyle={{paddingBottom:69}}
+            showsVerticalScrollIndicator
+            style={styles.matches}
+          />
+        </>
+      }
 
     </Background>
   );

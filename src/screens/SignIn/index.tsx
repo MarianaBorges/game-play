@@ -7,14 +7,14 @@ import {
   ActivityIndicator
  } from 'react-native';
 
-import { styles } from './styles';
-import {theme} from '../../global/styles/theme';
-
+import { useAuth } from '../../hooks/auth';
 import IllustrationImg from '../../assets/illustration.png';
+
 import { ButtonIcon } from '../../components/ButtonIcon'
 import { Background } from '../../components/Background';
-import { useAuth } from '../../hooks/auth';
 
+import { styles } from './styles';
+import {theme} from '../../global/styles/theme';
 
 export function SignIn() {
 
