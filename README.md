@@ -38,7 +38,7 @@ $ yarn start
 
 # O servidor inciará na porta:19000
 
-#abra o expo go e leia o QR code que aparece na tela ou rode o emulador
+# Abra o expo go e leia o QR code que aparece na tela ou rode o emulador
 ```
 
 ### Tecnologias
