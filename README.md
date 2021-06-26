@@ -1,6 +1,10 @@
 <h1 align="center">GamePlay</h1>
 <p align="center">App que gerencia suas partidas de jogos. Aplicação desenvolvida durante a NLWTogether da rocketseat</p>
 
+<h4"> 
+ Em construção...
+</h4>
+
 Tabela de conteúdos
 =================
 <!--ts-->
@@ -8,13 +12,9 @@ Tabela de conteúdos
    * [Instalação](#instalacao)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
-      * [Rodando o app]
+      * [Rodando o app](#)
    * [Tecnologias](#tecnologias)
 <!--te-->
-
-<h4 align="center"> 
- Em construção...
-</h4>
 
 ### Pré-requisitos
 
