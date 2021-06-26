@@ -1,1 +1,51 @@
-# game-play
+<h1 align="center">GamePlay</h1>
+<p align="center">App que gerencia suas partidas de jogos. Aplicação desenvolvida durante a NLWTogether da rocketseat</p>
+
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Instalação](#instalacao)
+   * [Como usar](#como-usar)
+      * [Pre Requisitos](#pre-requisitos)
+      * [Rodando o app]
+   * [Tecnologias](#tecnologias)
+<!--te-->
+
+<h4 align="center"> 
+ Em construção...
+</h4>
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[expo](https://docs.expo.io/), [Node.js](https://nodejs.org/en/). 
+
+### Rodando o app
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/MarianaBorges/game-play.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd game-play
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação
+$ yarn start
+
+# O servidor inciará na porta:19000
+
+#abra o expo go e leia o QR code que aparece na tela ou rode o emulador
+```
+
+### Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Expo](https://expo.io/)
+- [Node.js](https://nodejs.org/en/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
