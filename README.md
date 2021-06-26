@@ -1,19 +1,19 @@
 <h1 align="center">GamePlay</h1>
 <p align="center">App que gerencia suas partidas de jogos. Aplicação desenvolvida durante a NLWTogether da rocketseat</p>
 
-<h4"> 
+<h4> 
  Em construção...
 </h4>
 
 Tabela de conteúdos
 =================
 <!--ts-->
-   * [Tabela de Conteudo](#tabela-de-conteudo)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Rodando o app](#)
-   * [Tecnologias](#tecnologias)
+   * [Tabela de Conteudo]()
+   * [Instalação]()
+   * [Como usar]()
+      * [Pre Requisitos]()
+      * [Rodando o app]()
+   * [Tecnologias]()
 <!--te-->
 
 ### Pré-requisitos
