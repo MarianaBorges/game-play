@@ -8,12 +8,12 @@
 Tabela de conteúdos
 =================
 <!--ts-->
-   * [Tabela de Conteudo]()
-   * [Instalação]()
-   * [Como usar]()
-      * [Pre Requisitos]()
-      * [Rodando o app]()
-   * [Tecnologias]()
+   * Tabela de Conteudo
+   * Instalação
+   * Como usar
+      * Pre Requisitos
+      * Rodando o app
+   * Tecnologias
 <!--te-->
 
 ### Pré-requisitos
